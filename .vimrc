@@ -4,13 +4,13 @@
 " No need for vi compatibility
 set nocompatible
 
-set statusline=%f             " filename
-set statusline+=\ %m          " modified flag
-set statusline+=\ %r          " read-only flag
-set statusline+=\ Line:%l/%L  " line x of y
+set statusline=\ %l/%L        " line x of y
 set statusline+=\ [%p%%]      " percent through file
 set statusline+=\ Col:%v      " column number
 set statusline+=\ Buf:#%n     " buffer number
+set statusline+=\ \ \ \ %m    " modified flag
+set statusline+=\ %r          " read-only flag
+set statusline+=\ \ \ \ %F    " filename
 
 let mapleader = "-"
 let maplocalleader = "\\"
@@ -40,6 +40,10 @@ colorscheme Tomorrow/Tomorrow-Night-Bright
 " Runs ftplugin.vim in "runtimepath", which enables the loading of a filetype's plugin.
 " TODO: Read the files associated with this command.
 filetype indent plugin on
+
+if has("gui_running")
+  set guifont=Source\ Code\ Pro:h14
+endif
 
 "--------------------------------------------------------------------------------
 " Display settings
@@ -105,6 +109,20 @@ nnoremap H 0
 nnoremap L $
 
 "--------------------------------------------------------------------------------
+" Plugins
+
+execute pathogen#infect()
+
+"--------------------------------------------------------------------------------
+" Autocommands
+
+if has("autocmd")
+  augroup lcd
+    autocmd!
+    autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
+endif
+
+"--------------------------------------------------------------------------------
 " Examples (didn't write, probably won't use, here for reference only)
 
 " Capitalize the current word. From Learn Vimscript the Hard Way.
@@ -155,6 +173,9 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 if has("autocmd")
-  autocmd bufNewFile,BufRead *.rss,*.atom setfiletype xml
-  autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+  augroup samples
+    autocmd!
+    autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
+    autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+  augroup END
 endif
