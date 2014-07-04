@@ -8,9 +8,10 @@ set statusline=\ %l/%L        " line x of y
 set statusline+=\ [%p%%]      " percent through file
 set statusline+=\ Col:%v      " column number
 set statusline+=\ Buf:#%n     " buffer number
-set statusline+=\ \ \ \ %m    " modified flag
+set statusline+=\ %y
+set statusline+=\ %m    " modified flag
 set statusline+=\ %r          " read-only flag
-set statusline+=\ \ \ \ %F    " filename
+set statusline+=\ %f    " filename
 
 let mapleader = "-"
 let maplocalleader = "\\"
@@ -57,8 +58,10 @@ set wrap
 " Changes wrap behavior to wrap on the contents of the breakat variable.
 set linebreak
 
-" Show invisible characters.
-set list
+" Show invisible characters. Disable because it overrides linebreak. Perhaps
+" later set list based on filetype, for example, only for markdown and plain
+" text.
+" set list
 
 " What to show the invisibles as.
 set listchars=tab:▸\ ,trail:·
@@ -111,16 +114,34 @@ nnoremap L $
 "--------------------------------------------------------------------------------
 " Plugins
 
-execute pathogen#infect()
-
 "--------------------------------------------------------------------------------
 " Autocommands
 
 if has("autocmd")
-  augroup lcd
+  augroup vimrcgroup
     autocmd!
-    autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
+"   autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
+  augroup END
 endif
+
+"--------------------------------------------------------------------------------
+" Functions
+
+function! SaveSession()
+  execute "call mkdir(%:p:h/.vim)"
+  execute "mksession! %:p:h/.vim/session.vim"
+endfunction
+
+function! RestoreSession()
+  execute "source %:p:h/.vim/session.vim"
+  if bufexists(1)
+    for l in range(1, bufnr("$"))
+      if bufwinnr(l) == -1
+        execute "badd " . l
+      endif
+    endfor
+  endif
+endfunction
 
 "--------------------------------------------------------------------------------
 " Examples (didn't write, probably won't use, here for reference only)
