@@ -1,8 +1,19 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 "--------------------------------------------------------------------------------
 " Application options
-
-" No need for vi compatibility
-set nocompatible
 
 set statusline=\ %l/%L        " line x of y
 set statusline+=\ [%p%%]      " percent through file
@@ -32,15 +43,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 syntax on
 
 colorscheme Tomorrow/Tomorrow-Night-Bright
-
-" Turn on file type detection.
-" According to the :h filetype, turning this on will load $VIMRUNTIME/filetype.vim,
-" which defines autocommands for BufNewFile and BufRead.
-" Runs indent.vim in "runtimepath", which enables the loading of the indent file for
-" specific file types.
-" Runs ftplugin.vim in "runtimepath", which enables the loading of a filetype's plugin.
-" TODO: Read the files associated with this command.
-filetype indent plugin on
 
 if has("gui_running")
   set guifont=Source\ Code\ Pro:h14
