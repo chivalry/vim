@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'chivalry/filemakervim'
+Plugin 'git@bitbucket.org:chivalry/filemakervim.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
