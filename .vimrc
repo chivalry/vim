@@ -6,7 +6,8 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippes'
+Plugin 'honza/vim-snippets'
+Plugin 'chivalry/filemakervim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
