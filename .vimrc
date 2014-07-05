@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin "file:///Users/chuck/Projects/chiv/chiv.filemakervim"
 Plugin 'git@bitbucket.org:chivalry/filemakervim.git'
 
 call vundle#end()            " required
