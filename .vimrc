@@ -1,16 +1,21 @@
 set nocompatible              " be iMproved
-filetype off                  " turn off while we load plugins
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has('python')
+  filetype off                  " turn off while we load plugins
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin "file:///Users/chuck/Projects/chiv/chiv.filemakervim"
-Plugin 'git@bitbucket.org:chivalry/filemakervim.git'
+  set runtimepath+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 
-call vundle#end()            " required
+  Plugin 'gmarik/Vundle.vim'
+
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
+
+  Plugin 'git@bitbucket.org:chivalry/filemakervim.git'
+
+  call vundle#end()            " required
+endif
+
 filetype plugin indent on    " required
 
 "--------------------------------------------------------------------------------
@@ -20,10 +25,10 @@ set statusline=\ %l/%L        " line x of y
 set statusline+=\ [%p%%]      " percent through file
 set statusline+=\ Col:%v      " column number
 set statusline+=\ Buf:#%n     " buffer number
-set statusline+=\ %y
-set statusline+=\ %m    " modified flag
+set statusline+=\ %y          " filetype
+set statusline+=\ %m          " modified flag
 set statusline+=\ %r          " read-only flag
-set statusline+=\ %f    " filename
+set statusline+=\ %f          " filename
 
 let mapleader = "-"
 let maplocalleader = "\\"
@@ -46,7 +51,7 @@ syntax on
 colorscheme Tomorrow/Tomorrow-Night-Bright
 
 if has("gui_running")
-  set guifont=Source\ Code\ Pro:h14
+  set guifont=Source\ Code\ Pro:h18
 endif
 
 "--------------------------------------------------------------------------------
@@ -122,7 +127,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="horizontal"
 
 "--------------------------------------------------------------------------------
 " Autocommands
@@ -130,7 +135,7 @@ let g:UltiSnipsEditSplit="vertical"
 if has("autocmd")
   augroup vimrcgroup
     autocmd!
-"   autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
+    autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
   augroup END
 endif
 
@@ -210,3 +215,4 @@ if has("autocmd")
     autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
   augroup END
 endif
+
