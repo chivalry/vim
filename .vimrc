@@ -51,7 +51,7 @@ syntax on
 colorscheme Tomorrow/Tomorrow-Night-Bright
 
 if has("gui_running")
-  set guifont=Source\ Code\ Pro:h18
+  set guifont=Source\ Code\ Pro:h16
 endif
 
 "--------------------------------------------------------------------------------
