@@ -12,6 +12,7 @@ if has('python')
   Plugin 'honza/vim-snippets'
 
   Plugin 'tpope/vim-surround'
+  Plugin 'tpope/vim-repeat'
 
   Plugin 'chivalry/filemaker.vim'
 
@@ -52,9 +53,9 @@ nnoremap <leader>bv :split ~/.bash_profile<cr>
 " window
 set laststatus=2
 
-" When the page starts to scroll, keep the cursor 8 lines from
-" the top and 8 lines from the bottom
-set scrolloff=8
+" When the page starts to scroll, keep the cursor 4 lines from
+" the top and 4 lines from the bottom
+set scrolloff=4
 
 nnoremap <leader>ll :ls!<cr>
 
