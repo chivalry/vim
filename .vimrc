@@ -11,7 +11,9 @@ if has('python')
   Plugin 'SirVer/ultisnips'
   Plugin 'honza/vim-snippets'
 
-  Plugin 'git@bitbucket.org:chivalry/filemakervim.git'
+  Plugin 'tpope/vim-surround'
+
+  Plugin 'chivalry/filemaker.vim'
 
   call vundle#end()            " required
 endif
@@ -25,6 +27,7 @@ set statusline=\ %l/%L        " line x of y
 set statusline+=\ [%p%%]      " percent through file
 set statusline+=\ Col:%v      " column number
 set statusline+=\ Buf:#%n     " buffer number
+set statusline+=\ Char:%b
 set statusline+=\ %y          " filetype
 set statusline+=\ %m          " modified flag
 set statusline+=\ %r          " read-only flag
@@ -41,6 +44,19 @@ set history=1000
 " Commands for editing and executing the .vimrc file.
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Commands for editing the .bash_profile.
+nnoremap <leader>bv :split ~/.bash_profile<cr>
+
+" tell Vim to always put a status line in, even if there is only one
+" window
+set laststatus=2
+
+" When the page starts to scroll, keep the cursor 8 lines from
+" the top and 8 lines from the bottom
+set scrolloff=8
+
+nnoremap <leader>ll :ls!<cr>
 
 "--------------------------------------------------------------------------------
 " Text formatting
@@ -92,7 +108,10 @@ set smartcase
 set incsearch
 
 " Highlight search results. Disabled until an easy way to remove highlights is found.
-" set hlsearch
+set hlsearch
+
+" Turn off the search highlighting automatically by pressing <esc>
+nnoremap <esc> :nohlsearch<return><esc>
 
 "--------------------------------------------------------------------------------
 " Abbreviations
@@ -115,9 +134,17 @@ nnoremap <d-]> >>
 vnoremap <d-[> <gv
 vnoremap <d-]> >gv
 
-" Navigate to beginning and end of current line.
-nnoremap H 0
-nnoremap L $
+nnoremap <leader>ew :e <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>ew :sp <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>ew :vsp <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>ew :tabe <c-r>=expand("%:p:h")."/"<cr>
+
+nnoremap <leader>fm :set filetype=fmfalc
+
+nnoremap <c-left>   <c-w>h
+nnoremap <c-down>   <c-w>j
+nnoremap <c-up>     <c-w>k
+nnoremap <c-right>  <c-w>l
 
 "--------------------------------------------------------------------------------
 " Plugins
@@ -216,3 +243,80 @@ if has("autocmd")
   augroup END
 endif
 
+"--------------------------------------------------------------------------------
+" Help files to get to for Vim education, here's as good a place as any to
+" store them.
+"
+" vimrc
+" runtimepath
+" $VIMRUNTIME
+" $VIM
+" helptags
+"
+" vim-modes
+" Normal-mode
+" Visual-mode
+" Insert-mode
+" Command-mode
+" Ex-mode
+"
+" insert.txt
+" usr_24.txt
+" textwidth
+" i_CTRL-T
+" i_CTRL-D
+" i_CTRL-W
+" i_CTRL-V
+" ins-special-special
+" ins-completion
+" complete
+" i_CTRL-N
+" i_CTRL-P
+"
+" --remote-silent
+"
+"  :vglobal
+"  :substitute
+"  :%
+"  regexp
+"
+"  q
+"  yank
+"  %
+"  /
+"  O
+"  p
+"  wnext
+"  @
+"
+"  CTRL-A
+"  q
+"  @
+"  :global
+"
+"  i_CTRL-R_= 
+"
+"  autocommand
+"  augroup
+"  function
+"
+"  :find
+"  path
+"  audocmd
+"  augroup
+"  expand()
+"
+"  :g
+"  :v
+"  :/\(
+"  /^
+"  /\{
+"  /[]
+"  /\zs
+"  :normal
+"  :t
+"  search-pattern
+"  
+"  Surround
+"
+" jump-motions
