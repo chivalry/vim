@@ -14,6 +14,8 @@ if has('python')
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-repeat'
 
+  Plugin 'altercation/vim-colors-solarized'
+
   Plugin 'chivalry/filemaker.vim'
 
   call vundle#end()            " required
@@ -65,7 +67,7 @@ nnoremap <leader>ll :ls!<cr>
 " Sources $VIMRUNTIME/syntax/syntax.vim to enable syntax highlighting.
 syntax on
 
-colorscheme Tomorrow/Tomorrow-Night-Bright
+colorscheme solarized
 
 if has("gui_running")
   set guifont=Source\ Code\ Pro:h16
@@ -136,9 +138,9 @@ vnoremap <d-[> <gv
 vnoremap <d-]> >gv
 
 nnoremap <leader>ew :e <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>ew :sp <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>ew :vsp <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>ew :tabe <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>sw :sp <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>vw :vsp <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>tw :tabe <c-r>=expand("%:p:h")."/"<cr>
 
 nnoremap <leader>fm :set filetype=fmfalc
 
@@ -146,6 +148,12 @@ nnoremap <c-left>   <c-w>h
 nnoremap <c-down>   <c-w>j
 nnoremap <c-up>     <c-w>k
 nnoremap <c-right>  <c-w>l
+
+nnoremap j gj
+nnoremap k gk
+nnoremap $ g$
+nnoremap 0 g0
+nnoremap ^ g^
 
 "--------------------------------------------------------------------------------
 " Plugins
@@ -248,7 +256,6 @@ endif
 " Help files to get to for Vim education, here's as good a place as any to
 " store them.
 "
-" vimrc
 " runtimepath
 " $VIMRUNTIME
 " $VIM
