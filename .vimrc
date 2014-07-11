@@ -21,7 +21,9 @@ if has('python')
   call vundle#end()            " required
 endif
 
-filetype plugin indent on    " required
+if has('autocmd')
+  filetype plugin indent on    " required
+endif
 
 "--------------------------------------------------------------------------------
 " Application options
@@ -137,10 +139,10 @@ nnoremap <d-]> >>
 vnoremap <d-[> <gv
 vnoremap <d-]> >gv
 
-nnoremap <leader>ew :e <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>sw :sp <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>vw :vsp <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>tw :tabe <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>ew :edit <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>sw :split <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>vw :vsplit <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <leader>tw :tabedit <c-r>=expand("%:p:h")."/"<cr>
 
 nnoremap <leader>fm :set filetype=fmfalc
 
@@ -172,6 +174,7 @@ if has("autocmd")
   augroup vimrcgroup
     autocmd!
     autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
+    autocmd BufWritePost .vimrc source $MYVIMRC
   augroup END
 endif
 
