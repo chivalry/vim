@@ -3,6 +3,8 @@ set nocompatible              " be iMproved
 if has('python')
   filetype off                  " turn off while we load plugins
 
+  " Note that a major changed made by Vundle is to edit the runtimepath to
+  " include all plugin directories
   set runtimepath+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
 
@@ -14,9 +16,13 @@ if has('python')
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-repeat'
 
+  Plugin 'godlygeek/tabular'
+
   Plugin 'altercation/vim-colors-solarized'
 
   Plugin 'chivalry/filemaker.vim'
+
+  Plugin 'mklabs/vim-markdown-helpfile'
 
   call vundle#end()            " required
 endif
@@ -47,7 +53,7 @@ set hidden
 set history=1000
 
 " Commands for editing and executing the .vimrc file.
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Commands for editing the .bash_profile.
@@ -69,6 +75,11 @@ nnoremap <leader>ll :ls!<cr>
 " Sources $VIMRUNTIME/syntax/syntax.vim to enable syntax highlighting.
 syntax on
 
+let g:solarized_contrast="high"    "default value is normal
+let g:solarized_visibility="high"    "default value is normal
+let g:solarized_hitrail=1    "default value is 0
+syntax enable
+set background=dark
 colorscheme solarized
 
 if has("gui_running")
@@ -152,10 +163,23 @@ nnoremap <c-up>     <c-w>k
 nnoremap <c-right>  <c-w>l
 
 nnoremap j gj
+vnoremap j gj
 nnoremap k gk
+vnoremap k gk
 nnoremap $ g$
+vnoremap $ g$
 nnoremap 0 g0
+vnoremap 0 g0
 nnoremap ^ g^
+vnoremap ^ g^
+
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 "--------------------------------------------------------------------------------
 " Plugins
@@ -175,6 +199,7 @@ if has("autocmd")
     autocmd!
     autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
     autocmd BufWritePost .vimrc source $MYVIMRC
+    autocmd BufNewFile,BufRead *.md set filetype=markdown
   augroup END
 endif
 
@@ -250,84 +275,6 @@ endfunction
 if has("autocmd")
   augroup samples
     autocmd!
-    autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
     autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
   augroup END
 endif
-
-"--------------------------------------------------------------------------------
-" Help files to get to for Vim education, here's as good a place as any to
-" store them.
-"
-" runtimepath
-" $VIMRUNTIME
-" $VIM
-" helptags
-"
-" vim-modes
-" Normal-mode
-" Visual-mode
-" Insert-mode
-" Command-mode
-" Ex-mode
-"
-" insert.txt
-" usr_24.txt
-" textwidth
-" i_CTRL-T
-" i_CTRL-D
-" i_CTRL-W
-" i_CTRL-V
-" ins-special-special
-" ins-completion
-" complete
-" i_CTRL-N
-" i_CTRL-P
-"
-" --remote-silent
-"
-"  :vglobal
-"  :substitute
-"  :%
-"  regexp
-"
-"  q
-"  yank
-"  %
-"  /
-"  O
-"  p
-"  wnext
-"  @
-"
-"  CTRL-A
-"  q
-"  @
-"  :global
-"
-"  i_CTRL-R_= 
-"
-"  autocommand
-"  augroup
-"  function
-"
-"  :find
-"  path
-"  audocmd
-"  augroup
-"  expand()
-"
-"  :g
-"  :v
-"  :/\(
-"  /^
-"  /\{
-"  /[]
-"  /\zs
-"  :normal
-"  :t
-"  search-pattern
-"  
-"  Surround
-"
-" jump-motions
