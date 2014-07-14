@@ -15,8 +15,10 @@ if has('python')
 
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-repeat'
+  Plugin 'tpope/vim-commentary'
 
   Plugin 'godlygeek/tabular'
+  Plugin 'vim-scripts/bufexplorer.zip'
 
   Plugin 'altercation/vim-colors-solarized'
 
@@ -39,10 +41,12 @@ set statusline+=\ [%p%%]      " percent through file
 set statusline+=\ Col:%v      " column number
 set statusline+=\ Buf:#%n     " buffer number
 set statusline+=\ Char:%b
-set statusline+=\ %y          " filetype
 set statusline+=\ %m          " modified flag
 set statusline+=\ %r          " read-only flag
-set statusline+=\ %f          " filename
+set statusline+=%#identifier#
+set statusline+=\ %t          " filename
+set statusline+=%#statement#
+set statusline+=\ %y          " filetype
 
 let mapleader = "-"
 let maplocalleader = "\\"
@@ -57,7 +61,7 @@ nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Commands for editing the .bash_profile.
-nnoremap <leader>bv :split ~/.bash_profile<cr>
+nnoremap <leader>bt :tabedit ~/.bash_profile<cr>
 
 " tell Vim to always put a status line in, even if there is only one
 " window
