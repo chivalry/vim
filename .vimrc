@@ -177,7 +177,7 @@ vnoremap 0 g0
 nnoremap ^ g^
 vnoremap ^ g^
 
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nnoremap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -230,8 +230,8 @@ endfunction
 " Examples (didn't write, probably won't use, here for reference only)
 
 " Capitalize the current word. From Learn Vimscript the Hard Way.
-inoremap <c-u> <esc>viwUi
-nnoremap <c-u> viwU
+" inoremap <c-u> <esc>viwUi
+" nnoremap <c-u> viwU
 
 " Enclose the current word in quotes.
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
