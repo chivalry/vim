@@ -159,7 +159,7 @@ nnoremap <leader>sw :split <c-r>=expand("%:p:h")."/"<cr>
 nnoremap <leader>vw :vsplit <c-r>=expand("%:p:h")."/"<cr>
 nnoremap <leader>tw :tabedit <c-r>=expand("%:p:h")."/"<cr>
 
-nnoremap <leader>fm :set filetype=fmfalc
+nnoremap <leader>fm :set filetype=fmcalc<cr>
 
 nnoremap <c-left>   <c-w>h
 nnoremap <c-down>   <c-w>j
@@ -188,12 +188,11 @@ endfunc
 "--------------------------------------------------------------------------------
 " Plugins
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Hide swap files in netrw
 let g:netrw_list_hide='.*\.sw.$'
