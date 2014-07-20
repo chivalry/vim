@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/filemaker.vim"]
 	path = .vim/bundle/filemaker.vim
 	url = https://github.com/chivalry/filemaker.vim.git
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
