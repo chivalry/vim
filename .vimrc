@@ -18,7 +18,6 @@ if has('python')
   Plugin 'tpope/vim-commentary'
 
   Plugin 'godlygeek/tabular'
-  Plugin 'vim-scripts/bufexplorer.zip'
 
   Plugin 'altercation/vim-colors-solarized'
 
