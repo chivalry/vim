@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-markdown-helpfile"]
 	path = .vim/bundle/vim-markdown-helpfile
 	url = https://github.com/mklabs/vim-markdown-helpfile.git
+[submodule ".vim/bundle/vim-repeat"]
+	path = .vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
