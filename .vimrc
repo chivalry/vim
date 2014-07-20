@@ -195,6 +195,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"
 
+" Hide swap files in netrw
+let g:netrw_list_hide='.*\.sw.$'
+
 "--------------------------------------------------------------------------------
 " Autocommands
 
