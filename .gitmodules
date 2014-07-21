@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = http://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/applescript.vim"]
+	path = .vim/bundle/applescript.vim
+	url = https://github.com/vim-scripts/applescript.vim.git

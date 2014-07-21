@@ -22,6 +22,7 @@ if has('python')
   Plugin 'altercation/vim-colors-solarized'
 
   Plugin 'chivalry/filemaker.vim'
+  Plugin 'vim-scripts/applescript.vim'
 
   Plugin 'mklabs/vim-markdown-helpfile'
 
@@ -176,7 +177,7 @@ vnoremap 0 g0
 nnoremap ^ g^
 vnoremap ^ g^
 
-nnoremap <C-S-P> :call <SID>SynStack()<CR>
+nnoremap <c-s-p> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return

@@ -1,4 +1,3 @@
-vim-modes
 Normal-mode
 Visual-mode
 Insert-mode
