@@ -73,6 +73,9 @@ set scrolloff=4
 
 nnoremap <leader>ll :ls!<cr>
 
+autocmd BufRead,BufNewFile *.md,*.txt setlocal spell
+autocmd BufRead,BufNewFile *.md,*.txt setlocal spellfile=~/.vim/en.utf-8.add
+
 "--------------------------------------------------------------------------------
 " Text formatting
 
