@@ -73,25 +73,24 @@ set scrolloff=4
 
 nnoremap <leader>ll :ls!<cr>
 
-autocmd BufRead,BufNewFile *.md,*.txt setlocal spell
-autocmd BufRead,BufNewFile *.md,*.txt setlocal spellfile=~/.vim/en.utf-8.add
+autocmd FileType text,markdown setlocal spell
+autocmd Filetype text,markdown setlocal spellfile=~/.vim/en.utf-8.add
+set spellsuggest=10
 
 "--------------------------------------------------------------------------------
 " Text formatting
 
-" Sources $VIMRUNTIME/syntax/syntax.vim to enable syntax highlighting.
-syntax on
-
-let g:solarized_contrast="high"    "default value is normal
-let g:solarized_visibility="high"    "default value is normal
-let g:solarized_hitrail=1    "default value is 0
-syntax enable
 set background=dark
-colorscheme solarized
-
 if has("gui_running")
+  let g:solarized_contrast="high"    "default value is normal
+  let g:solarized_visibility="high"    "default value is normal
+  let g:solarized_hitrail=1    "default value is 0
+  colorscheme solarized
   set guifont=Source\ Code\ Pro:h16
+else
+  colorscheme Koehler
 endif
+syntax enable
 
 "--------------------------------------------------------------------------------
 " Display settings
@@ -119,6 +118,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
+set cursorline
 
 "--------------------------------------------------------------------------------
 " Search options
@@ -206,7 +207,7 @@ let g:netrw_list_hide='.*\.sw.$'
 if has("autocmd")
   augroup vimrcgroup
     autocmd!
-    autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
+    " autocmd BufNewFile,BufRead * :execute "lcd " . expand("%:p:h")
     autocmd BufWritePost .vimrc source $MYVIMRC
     autocmd BufNewFile,BufRead *.md set filetype=markdown
   augroup END
