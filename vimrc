@@ -61,7 +61,6 @@ colorscheme afterglow
 if has("autocmd")
   augroup vimgroup
     autocmd!
-    " Source the vimrc when it's written
     autocmd BufWritePost *vimrc source $MYVIMRC
 
     autocmd BufNewFile,BufRead *.md set filetype=markdown
@@ -74,23 +73,25 @@ endif
 
 nnoremap <ESC> :nohlsearch<RETURN><ESC>
 
+" Use Cmd-[ and Cmd-] for indenting editing
 nnoremap <D-[> <<
 nnoremap <D-]> >>
 vnoremap <D-[> <gv
 vnoremap <D-]> >gv
 
+" Open splits
 nnoremap <leader>ew :edit <c-r>=expand("%:p:h")."/"<cr>
 nnoremap <leader>sw :split <c-r>=expand("%:p:h")."/"<cr>
 nnoremap <leader>vw :vsplit <c-r>=expand("%:p:h")."/"<cr>
 nnoremap <leader>tw :tabedit <c-r>=expand("%:p:h")."/"<cr>
 
-nnoremap <leader>fm :set filetype=fmcalc<cr>
-
+" Navigate splits
 nnoremap <c-left>   <c-w>h
 nnoremap <c-down>   <c-w>j
 nnoremap <c-up>     <c-w>k
 nnoremap <c-right>  <c-w>l
 
+" Movement keys take wrapped lines into account
 nnoremap j gj
 vnoremap j gj
 nnoremap k gk
