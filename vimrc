@@ -72,6 +72,7 @@ endif
 " Mappings
 
 nnoremap <ESC> :nohlsearch<RETURN><ESC>
+set visualbell                 " Turn off the bell that now sounds when <ESC> is pressed
 
 " Use Cmd-[ and Cmd-] for indenting editing
 nnoremap <D-[> <<
@@ -80,16 +81,16 @@ vnoremap <D-[> <gv
 vnoremap <D-]> >gv
 
 " Open splits
-nnoremap <leader>ew :edit <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>sw :split <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>vw :vsplit <c-r>=expand("%:p:h")."/"<cr>
-nnoremap <leader>tw :tabedit <c-r>=expand("%:p:h")."/"<cr>
+nnoremap <Leader>ew :edit <C-r>=expand("%:p:h")."/"<CR>
+nnoremap <Leader>sw :split <C-r>=expand("%:p:h")."/"<CR>
+nnoremap <Leader>vw :vsplit <C-r>=expand("%:p:h")."/"<CR>
+nnoremap <Leader>tw :tabedit <C-r>=expand("%:p:h")."/"<CR>
 
 " Navigate splits
-nnoremap <c-left>   <c-w>h
-nnoremap <c-down>   <c-w>j
-nnoremap <c-up>     <c-w>k
-nnoremap <c-right>  <c-w>l
+nnoremap <C-left>   <C-w>h
+nnoremap <C-down>   <C-w>j
+nnoremap <C-up>     <C-w>k
+nnoremap <C-right>  <C-w>l
 
 " Movement keys take wrapped lines into account
 nnoremap j gj
