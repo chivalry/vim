@@ -51,7 +51,7 @@ set background=dark            " May not need this
 if has("gui_running")
     set guifont=Menlo:h16
 else
-    syntax enable
+    syntax enable              " CL Vim doesn't have syntax highlighting without this
 endif
 colorscheme afterglow
 
@@ -61,7 +61,7 @@ colorscheme afterglow
 if has("autocmd")
   augroup vimgroup
     autocmd!
-    autocmd BufWritePost *vimrc source $MYVIMRC
+    autocmd BufWritePost *vimrc source $MYVIMRC " I don't think this is working
 
     autocmd BufNewFile,BufRead *.md set filetype=markdown
     autocmd BufNewFile,BufRead *.html set filetype=htmldjango
@@ -70,6 +70,8 @@ endif
 
 "--------------------------------------------------------------------------------
 " Mappings
+
+nnoremap <Leader><SPACE> :nohlsearch<CR>
 
 " Use Cmd-[ and Cmd-] for indenting editing
 nnoremap <D-[> <<
