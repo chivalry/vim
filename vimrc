@@ -71,9 +71,6 @@ endif
 "--------------------------------------------------------------------------------
 " Mappings
 
-nnoremap <ESC> :nohlsearch<RETURN><ESC>
-set visualbell                 " Turn off the bell that now sounds when <ESC> is pressed
-
 " Use Cmd-[ and Cmd-] for indenting editing
 nnoremap <D-[> <<
 nnoremap <D-]> >>
