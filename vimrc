@@ -47,6 +47,8 @@ set hidden                     " Hide current buffer when opening a new one even
 set history=1000               " Keep very long history of commands
 set scrolloff=4                " Keep the cursor 4 lines from the edges of the window
 
+set autoread                   " Just read the buffer's file if it was changed outside vim
+
 set background=dark            " May not need this
 if has("gui_running")
     set guifont=Menlo:h16
