@@ -57,6 +57,10 @@ else
 endif
 colorscheme afterglow
 
+set backupdir=/tmp//           " Keep backups, temp files and undo files in the global tmp
+set directory=/tmp//           " directory
+set undodir=/tmp//
+
 "--------------------------------------------------------------------------------
 " Autocommands
 
