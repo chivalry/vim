@@ -61,6 +61,9 @@ set backupdir=/tmp//           " Keep backups, temp files and undo files in the 
 set directory=/tmp//           " directory
 set undodir=/tmp//
 
+set splitbelow                 " Create splits below the current buffer
+set splitright                 " Create vertical splits to the right of the current buffer
+
 "--------------------------------------------------------------------------------
 " Autocommands
 
