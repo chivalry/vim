@@ -33,7 +33,7 @@ set statusline+=\ Char:%b
 set statusline+=\ %m           " modified flag
 set statusline+=\ %r           " read-only flag
 set statusline+=%#identifier#
-set statusline+=\ %t           " filename
+set statusline+=\ %f           " filename
 set statusline+=%#statement#
 set statusline+=\ %y           " filetype
 
