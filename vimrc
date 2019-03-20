@@ -18,6 +18,7 @@ set softtabstop=4              " Insert 4 spaces when pressing the tab key
 set expandtab                  " Use spaces when pressing the tab key
 
 set cursorline                 " Highlight the line with the cursor
+set colorcolumn=99             " Place a vertical color at column 99
 
 set ignorecase                 " Ignore case when performing a search
 set smartcase                  " Unless there's a capital letter in the search
