@@ -112,3 +112,6 @@ nnoremap 0 g0
 vnoremap 0 g0
 nnoremap ^ g^
 vnoremap ^ g^
+
+" Delete the current buffer without deleting the split it's in
+nmap <Leader>d :bnext<CR>:bdelete #<CR>
