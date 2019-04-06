@@ -2,3 +2,6 @@
 	path = pack/plugins/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
 	branch = master
+[submodule "pack/plugins/start/SimpylFold"]
+	path = pack/plugins/start/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold.git
