@@ -115,3 +115,9 @@ vnoremap ^ g^
 
 " Delete the current buffer without deleting the split it's in
 nmap <Leader>d :bnext<CR>:bdelete #<CR>
+
+"--------------------------------------------------------------------------------
+" Plugin Config
+
+let g:SimpylFold_fold_import = 0
+let g:SimplyFold_docstring_preview = 1
