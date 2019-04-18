@@ -65,7 +65,7 @@ set undodir=/tmp//
 set splitbelow                 " Create splits below the current buffer
 set splitright                 " Create vertical splits to the right of the current buffer
 
-set autochdir                  " Change the working directory based on the current buffer
+let g:netrw_liststyle = 3      " Use a tree view in netrw
 
 "--------------------------------------------------------------------------------
 " Autocommands
