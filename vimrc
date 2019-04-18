@@ -65,6 +65,8 @@ set undodir=/tmp//
 set splitbelow                 " Create splits below the current buffer
 set splitright                 " Create vertical splits to the right of the current buffer
 
+set autochdir                  " Change the working directory based on the current buffer
+
 "--------------------------------------------------------------------------------
 " Autocommands
 
