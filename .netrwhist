@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/chuck/Projects/chivalry/structured-flask/tests'
-let g:netrw_dirhist_2='/Users/chuck/Projects/chivalry/structured-flask'
-let g:netrw_dirhist_3='/Users/chuck/Projects/chivalry/structured-flask/tests'
-let g:netrw_dirhist_4='/Users/chuck/Projects/chivalry/structured-flask'
-let g:netrw_dirhist_5='/Users/chuck/Projects/chivalry/structured-flask/app'
-let g:netrw_dirhist_6='/Users/chuck/Projects/chivalry/structured-flask/app/server'
-let g:netrw_dirhist_7='/Users/chuck/Projects/chivalry/structured-flask/app'
