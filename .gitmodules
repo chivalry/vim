@@ -5,3 +5,6 @@
 [submodule "pack/plugins/start/SimpylFold"]
 	path = pack/plugins/start/SimpylFold
 	url = https://github.com/tmhedberg/SimpylFold.git
+[submodule "pack/plugins/start/python-mode"]
+	path = pack/plugins/start/python-mode
+	url = https://github.com/python-mode/python-mode.git
