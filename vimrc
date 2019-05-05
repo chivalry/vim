@@ -67,6 +67,7 @@ set splitright                  " Create vertical splits to the right of the cur
 
 let g:netrw_liststyle = 3       " Use a tree view in netrw
 let g:pymode_python = 'python3' " I only use Python 3
+let g:pymode_options_max_line_length = 99 " My personal preference
 
 "--------------------------------------------------------------------------------
 " Autocommands
